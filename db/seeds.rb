@@ -5,3 +5,5 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+Listing.create(name: "Denny's", address:"2690 N. Monroe St., Tallahassee, FL 32303", mens_chance: 0.00, womens_chance: 0.00, private_chance: 0.00, clean_chance: 0.00, broken_chance: 0.00)
+

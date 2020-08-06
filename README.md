@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # README
 
 This README would normally document whatever steps are necessary to get the
@@ -22,3 +23,6 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+=======
+# dads-and-diapers-backend
+>>>>>>> 83a6ce039ba52222b44a864e4a57e80fa42c57ec

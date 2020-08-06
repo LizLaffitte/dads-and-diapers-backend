@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_06_012550) do
+ActiveRecord::Schema.define(version: 2020_08_06_194552) do
 
   create_table "listings", force: :cascade do |t|
     t.string "name"
@@ -26,4 +26,30 @@ ActiveRecord::Schema.define(version: 2020_08_06_012550) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "reviews", force: :cascade do |t|
+    t.string "name"
+    t.integer "listing_id", null: false
+    t.integer "user_id", null: false
+    t.boolean "mens"
+    t.boolean "womens"
+    t.boolean "private"
+    t.boolean "broken"
+    t.integer "clean"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["listing_id"], name: "index_reviews_on_listing_id"
+    t.index ["user_id"], name: "index_reviews_on_user_id"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "username"
+    t.string "email"
+    t.string "password_digest"
+    t.string "rank"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  add_foreign_key "reviews", "listings"
+  add_foreign_key "reviews", "users"
 end

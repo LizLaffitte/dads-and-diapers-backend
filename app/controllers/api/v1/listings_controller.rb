@@ -24,6 +24,7 @@ class Api::V1::ListingsController < ApplicationController
             render json: @listing
         else
             render json: {errors: @listing.errors.full_messages}, status: :unprocessable_entity
+        end
     end
 
     private

@@ -8,4 +8,11 @@ class Api::V1::ListingsController < ApplicationController
         listing = Listing.find_by_id(params[:id])
         render json: listing
     end
+
+    def new
+    end
+
+    def create 
+    end
+
 end

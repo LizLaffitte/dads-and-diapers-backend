@@ -9,10 +9,20 @@ class Api::V1::ListingsController < ApplicationController
         render json: listing
     end
 
-    def new
+    def create 
+        listing = Listing.new(listing_params)
+        if listing.save
+            render json: listing
+        else
+            render json: {errors: listing.errors.full_messages},
+            status: unprocessable_entity
+        end
     end
 
-    def create 
+    private
+
+    def listing_params
+        params.require(:listing).permit(:name, :address)
     end
 
 end

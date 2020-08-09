@@ -16,7 +16,7 @@ class Api::V1::ReviewsController < ApplicationController
         params.require(:review).permit(:listing_id, :user_id, :mens, :womens, :private, :broken, :clean)
     end
 
-    def find_user
+    def find_review
         @review = Review.find_by_id(params[:id])
     end
 end

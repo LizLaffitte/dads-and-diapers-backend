@@ -6,7 +6,16 @@ class SessionsController < ApplicationController
             session[:user_id] = @user.id
             render json: UserSerializer.new(@user)
         else
-            render json: {errors: @user.errors.full_messages}, status: unprocessable_entity
+            render json: {errors: "Invalid Credentials"}
         end
     end
+
+    def get_current_user
+        if logged_in?
+            render json: UserSerializer.new(current_user)
+        else
+            render json: {errors: "No one logged in."}
+        end
+    end
+
 end

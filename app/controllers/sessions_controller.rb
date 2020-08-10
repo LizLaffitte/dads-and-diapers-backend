@@ -18,4 +18,9 @@ class SessionsController < ApplicationController
         end
     end
 
+    def destroy
+        session.delete
+        render json: {notice: "User logged out"}
+    end
+
 end

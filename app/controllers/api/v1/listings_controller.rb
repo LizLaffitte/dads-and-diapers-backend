@@ -1,5 +1,6 @@
 class Api::V1::ListingsController < ApplicationController
     before_action :find_listing, only: [:show, :update]
+    wrap_parameters :listing, include: [:name, :address]
     def index
         listings = Listing.all
         render json: ListingSerializer.new(listings)
@@ -23,7 +24,7 @@ class Api::V1::ListingsController < ApplicationController
         if @listing.save
             render json: ListingSerializer.new(@listing)
         else
-            render json: {errors: @listing.errors.full_messages}, status: :unprocessable_entity
+            render json: {error: @listing.errors.full_messages.to_sentence}, status: :unprocessable_entity
         end
     end
 

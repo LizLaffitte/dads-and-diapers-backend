@@ -1,5 +1,5 @@
 class Api::V1::ReviewsController < ApplicationController
-    before_action :find_review, only: [:show, :update]
+    before_action :find_review, only: [:show, :update, :destroy]
     wrap_parameters :review, include: [:mens, :womens, :isolated, :working, :clean, :user_id, :listing_id]
     def index
         reviews = Review.all
@@ -29,6 +29,13 @@ class Api::V1::ReviewsController < ApplicationController
             render json: {error: reivew.errors.full_messages.to_sentence}, status: :unprocessable_entity
         end
     end
+
+    def destroy
+        listing = @review.listing
+        @review.destroy
+        listing.calc_chances
+        render json: {notice: "Your review has been deleted."}
+    end    
 
     private
 

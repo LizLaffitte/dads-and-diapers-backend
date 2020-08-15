@@ -65,7 +65,7 @@ class Listing < ApplicationRecord
     end
 
     def calc_percentages(true_total)
-        ( true_total / self.reviews.count) * 100
+        ((true_total / self.reviews.count) * 100).round
     end
     
 

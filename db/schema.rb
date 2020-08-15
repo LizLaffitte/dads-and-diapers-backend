@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_06_194552) do
+ActiveRecord::Schema.define(version: 2020_08_15_002727) do
 
   create_table "listings", force: :cascade do |t|
     t.string "name"
@@ -19,9 +19,9 @@ ActiveRecord::Schema.define(version: 2020_08_06_194552) do
     t.float "long"
     t.float "mens_chance"
     t.float "womens_chance"
-    t.float "private_chance"
+    t.float "isolated_chance"
     t.float "clean_chance"
-    t.float "broken_chance"
+    t.float "working_chance"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -32,9 +32,9 @@ ActiveRecord::Schema.define(version: 2020_08_06_194552) do
     t.integer "user_id", null: false
     t.boolean "mens"
     t.boolean "womens"
-    t.boolean "private"
-    t.boolean "broken"
-    t.integer "clean"
+    t.boolean "isolated"
+    t.boolean "working"
+    t.boolean "clean"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["listing_id"], name: "index_reviews_on_listing_id"

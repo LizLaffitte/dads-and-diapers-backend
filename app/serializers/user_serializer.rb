@@ -5,12 +5,7 @@ class UserSerializer
     user.reviews.map do | review |
       {
         id: review.id,
-        location_id: review.listing_id, 
-        mens: review.mens, 
-        womens: review.womens, 
-        private: review.private, 
-        broken: review.broken, 
-        clean: review.clean
+        location_id: review.listing_id
       }
     end
   end  

@@ -1,6 +1,6 @@
 class Api::V1::ReviewsController < ApplicationController
     before_action :find_review, only: [:show, :update]
-    wrap_parameters :review, include: [:mens, :womens, :private, :broken, :clean, :user_id, :listing_id]
+    wrap_parameters :review, include: [:mens, :womens, :isolated, :working, :clean, :user_id, :listing_id]
     def index
         reviews = Review.all
         render json: ReviewSerializer.new(reviews)
@@ -13,16 +13,27 @@ class Api::V1::ReviewsController < ApplicationController
     def create
         review = Review.new(review_params)
         if review.save
+            review.listing.calc_chances
             render json: ReviewSerializer.new(review)
         else
             render json: {error: review.errors.full_messages.to_sentence}, status: :unprocessable_entity
         end
     end
 
+    def update
+        @review.update(review_params)
+        if @review.save
+            @review.listing.calc_chances
+            render json: ReviewSerializer.new(@review)
+        else
+            render json: {error: reivew.errors.full_messages.to_sentence}, status: :unprocessable_entity
+        end
+    end
+
     private
 
     def review_params
-        params.require(:review).permit(:listing_id, :user_id, :mens, :womens, :private, :broken, :clean)
+        params.require(:review).permit(:listing_id, :user_id, :mens, :womens, :isolated, :working, :clean)
     end
 
     def find_review

@@ -62,7 +62,7 @@ Toggle components based entirely on Praveen Kumar's
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/LizLaffitte/dads-and-diapers-fronted. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the Contributor Covenant [code of conduct](CODE_OF_CONDUCT.md).
+Bug reports and pull requests are welcome on GitHub at https://github.com/LizLaffitte/dads-and-diapers-frontend. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the Contributor Covenant [code of conduct](CODE_OF_CONDUCT.md).
 
 
 ## License

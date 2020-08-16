@@ -34,7 +34,11 @@ class Api::V1::ReviewsController < ApplicationController
         listing = @review.listing
         @review.destroy
         listing.calc_chances
-        render json: {notice: "Your review has been deleted."}
+        if @review.destroyed?
+            render json: {notice: "Your review has been deleted."}
+        else 
+            render json: {error: @review.error},  status: :unprocessable_entity
+        end
     end    
 
     private

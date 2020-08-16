@@ -31,7 +31,7 @@ class Api::V1::ListingsController < ApplicationController
     private
 
     def listing_params
-        params.require(:listing).permit(:name, :address)
+        params.require(:listing).permit(:name, :address, :womens_chance, :mens_chance, :isolated_chance, :working_chance, :clean_chance)
     end
 
     def find_listing

@@ -1,4 +1,4 @@
-#Dads and Diapers
+# Dads and Diapers
 Being a parent to small children comes with many challenges, having to worry about where you're going to change diapers when you're out of the house shouldn't be one of them.
 
 Dads and Diapers is an all for finding and rating public places based on the availability and condition of changing tables.

@@ -8,7 +8,7 @@ class CreateReviews < ActiveRecord::Migration[6.0]
       t.boolean :womens
       t.boolean :private
       t.boolean :broken
-      t.integer :clean
+      t.boolean :clean
       t.timestamps
     end
   end
